@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="container">
+    <h2>Calcular Factorial</h2>
+    <form method="post" asp-action="CalculateFactorial">
+        <div class="form-group">
+            <label for="number">Ingrese un número:</label>
+            <input type="number" class="form-control" id="number" name="number" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Calculate</button>
+    </form>
+
+    @if (ViewBag.FactorialResult != null)
+    {
+        <div class="alert alert-info mt-3">
+            El factorial es: @ViewBag.FactorialResult
+        </div>
+    }
+
+    <h2>Ordenar Números</h2>
+    <form method="post" asp-action="SortNumbers">
+        <div class="form-group">
+            <label for="numbers">Ingrese los números a ordenar separados por coma:</label>
+            <input type="text" class="form-control" id="numbers" name="numbers" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Sort</button>
+    </form>
+
+    @if (ViewBag.SortedNumbers != null)
+    {
+        <div class="alert alert-info mt-3">
+            Arreglo ordenado: @string.Join(", ", ViewBag.SortedNumbers)
+        </div>
+    }
+</div>
